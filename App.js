@@ -19,6 +19,7 @@ import ManageCommunities from './components/ManageCommunities';
 import PastDrops from './components/PastDrops';
 import SideMenu from './components/SideMenu';
 import Landing from './components/Landing'
+
 const navOptions = {
   headerTintColor: green,
   headerTitle: Header,
@@ -50,9 +51,9 @@ const CustomDrawerNavigator = createDrawerNavigator({
     navigationOptions: navOptions,
   }
 }, {
-    contentComponent: SideMenu,
-    drawerWidth: 300
-  });
+  contentComponent: SideMenu, 
+  drawerWidth: 300
+});
 
 const MainNavigator = createStackNavigator({
   CustomDrawerNavigator: {

@@ -28,7 +28,7 @@ class SideMenu extends Component {
         <ScrollView>
           <View>
             <View style={styles.navItemContainer}>
-                        <Text style={styles.navItemStyle} onPress={this.navigateToScreen('CreateCommunity')}>
+              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('CreateCommunity')}>
               Create Community
               </Text>
             </View>
@@ -44,7 +44,7 @@ class SideMenu extends Component {
             </View>
             <View style={styles.navItemContainer}>
               <Text style={styles.navItemStyle} onPress={this.navigateToScreen('CalendarView')}>
-                Calendar
+                My calendar
               </Text>
             </View>
             <View style={styles.navItemContainer}>
@@ -60,9 +60,6 @@ class SideMenu extends Component {
           </View>
 
         </ScrollView>
-        <View style={styles.footerContainer}>
-          <Text>This is my fixed footer</Text>
-        </View>
       </View>
     );
   }
@@ -75,7 +72,7 @@ SideMenu.propTypes = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 40,
+        padding: 20,
         backgroundColor: green
     },
     sectionHeadingStyle: {
@@ -85,6 +82,7 @@ const styles = StyleSheet.create({
     navItemStyle: {
       color: white,
       fontSize: 22,
+      fontFamily: 'Avenir'
     },
 
     navSectionStyle: {
@@ -95,7 +93,7 @@ const styles = StyleSheet.create({
       padding: 7,
       marginTop: 40,
       borderBottomColor: white,
-      borderBottomWidth: 1,
+      borderBottomWidth: 2,
     }
 })
 
