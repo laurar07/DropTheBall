@@ -27,28 +27,38 @@ class SideMenu extends Component {
       <View style={styles.container}>
         <ScrollView>
           <View>
-            <Text style={styles.sectionHeadingStyle}>
-              Section 1
-            </Text>
-            <View style={styles.navSectionStyle}>
+            <View style={styles.navItemContainer}>
                         <Text style={styles.navItemStyle} onPress={this.navigateToScreen('CreateCommunity')}>
-              CreateCommunity
+              Create Community
               </Text>
             </View>
-          </View>
-          <View>
-            <Text style={styles.sectionHeadingStyle}>
-              Section 2
-            </Text>
-            <View style={styles.navSectionStyle}>
+            <View style={styles.navItemContainer}>
               <Text style={styles.navItemStyle} onPress={this.navigateToScreen('ManageCommunities')}>
-                ManageCommunities
+                Manage Communities
               </Text>
+            </View>
+            <View style={styles.navItemContainer}>
+              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('PastDrops')}>
+                Past Drops
+              </Text>
+            </View>
+            <View style={styles.navItemContainer}>
               <Text style={styles.navItemStyle} onPress={this.navigateToScreen('CalendarView')}>
-                CalendarView
+                Calendar
+              </Text>
+            </View>
+            <View style={styles.navItemContainer}>
+              <Text style={styles.navItemStyle}>
+                Send a Thank You
+              </Text>
+            </View>
+            <View style={styles.navItemContainer}>
+              <Text style={styles.navItemStyle}>
+                Settings
               </Text>
             </View>
           </View>
+
         </ScrollView>
         <View style={styles.footerContainer}>
           <Text>This is my fixed footer</Text>
@@ -66,8 +76,27 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 40,
-        backgroundColor: blue
+        backgroundColor: green
     },
+    sectionHeadingStyle: {
+      fontSize: 36,
+      color: white,
+    },
+    navItemStyle: {
+      color: white,
+      fontSize: 22,
+    },
+
+    navSectionStyle: {
+      marginBottom: 20,
+    },
+
+    navItemContainer: {
+      padding: 7,
+      marginTop: 40,
+      borderBottomColor: white,
+      borderBottomWidth: 1,
+    }
 })
 
 export default SideMenu;
