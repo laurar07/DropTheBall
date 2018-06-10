@@ -33,9 +33,7 @@ const navOptions = {
 const CustomDrawerNavigator = createDrawerNavigator({
   Landing: {
     screen: Landing,
-    navigationOptions: ({ navigation }) => ({
-      headerLeft: <Header navigate={navigation.navigate} />,
-    }),
+    navigationOptions: navOptions,
   },
   Drop: {
     screen: Drop,

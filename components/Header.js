@@ -13,21 +13,13 @@ import CustomDrawerNavigator from './CustomDrawerNavigator';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons'
 import SideMenu from './SideMenu'
 import { connect } from 'react-redux'
+import { NavigationActions } from 'react-navigation'
 
 class Header extends Component {
-    state = {
-        isDrawerOpen : false
-    }
-    closeControlPanel = () => {
-        this._drawer.close()
-    };
-    openControlPanel = () => {
-        this._drawer.open()
-    };
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity style={styles.left}>
+                <TouchableOpacity style={styles.left} onPress={() => this.props.navigation ? this.props.navigation.navigate('SideMenu'): {}}>
                     {Platform.OS === 'ios'
                         ? <Ionicons name='ios-menu' size={40} color={white} />
                         : <MaterialIcons name='menu' size={40} color={white} />}
