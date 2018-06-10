@@ -76,7 +76,31 @@ class SideMenu extends Component {
               </Text>
             </View>
           </View>
-
+          <View style={{ flex: 1 }} />
+        </ScrollView>
+          <ScrollView>
+            <View>
+              <Text style={styles.footerStyle}>
+                You have one drop left until 07/01/18
+              </Text>
+            </View>
+          <View style={{ flex: 1 }} />
+        </ScrollView>
+        <ScrollView>
+          <View style={styles.iconContainer}>
+            <Image style={styles.iconButton}
+              source={require('../assets/icons/Drop_Filled.png')}
+            />
+            <Image style={styles.iconButton}
+              source={require('../assets/icons/logo_small.png')}
+            />
+            <Image style={styles.iconButton}
+              source={require('../assets/icons/logo_small.png')}
+            />
+            <Text style={styles.footerTextStyle}>
+              Upgrade now
+            </Text>
+            </View>
         </ScrollView>
       </View>
     );
@@ -102,11 +126,32 @@ const styles = StyleSheet.create({
       fontSize: 22,
       fontFamily: 'Avenir'
     },
-
+    footerStyle: {
+      color: white,
+      fontSize: 15,
+      fontFamily: 'Avenir'
+    },
+  footerTextStyle: {
+    color: white,
+    fontSize: 15,
+    fontWeight: 'bold',
+    fontFamily: 'Avenir',
+    marginLeft: 'auto'
+  },
     navSectionStyle: {
       marginBottom: 20,
     },
-
+    iconContainer: {
+      height: 40,
+      backgroundColor: green,
+      flexDirection: 'row',
+      justifyContent: 'flex-start'
+    },
+    iconButton: {
+      width: 30,
+      height: 30,
+      resizeMode: 'contain'
+    },
     navItemContainer: {
       padding: 7,
       marginTop: 40,
