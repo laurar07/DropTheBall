@@ -11,7 +11,6 @@ import {
 import { white, purple, gray, green, black } from '../utils/colors'
 import CustomDrawerNavigator from './CustomDrawerNavigator';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons'
-import Drawer from 'react-native-drawer'
 import SideMenu from './SideMenu'
 import { connect } from 'react-redux'
 
