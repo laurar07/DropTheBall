@@ -18,7 +18,8 @@ import CreateCommunity from './components/CreateCommunity';
 import ManageCommunities from './components/ManageCommunities';
 import PastDrops from './components/PastDrops';
 import SideMenu from './components/SideMenu';
-import Landing from './components/Landing'
+import Landing from './components/Landing';
+import Drop from './components/Drop';
 
 const navOptions = {
   headerTintColor: green,
@@ -35,6 +36,10 @@ const CustomDrawerNavigator = createDrawerNavigator({
     navigationOptions: ({ navigation }) => ({
       headerLeft: <Header navigate={navigation.navigate} />,
     }),
+  },
+  Drop: {
+    screen: Drop,
+    navigationOptions: navOptions,
   },
   CalendarView: {
     screen: CalendarView,
@@ -53,7 +58,7 @@ const CustomDrawerNavigator = createDrawerNavigator({
     navigationOptions: navOptions,
   }
 }, {
-  contentComponent: SideMenu, 
+  contentComponent: SideMenu,
   drawerWidth: 300
 });
 

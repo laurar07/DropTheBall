@@ -7,6 +7,7 @@ import {
     TextInput,
     Alert,
     ImageBackground,
+    TouchableWithoutFeedback,
     Image
 } from 'react-native'
 import { white, purple, gray, green, blue } from '../utils/colors'
@@ -18,11 +19,13 @@ import SideMenu from './SideMenu'
 class Landing extends Component {
     render() {
         return (
-            <View style={styles.container} onPress={() => this.props.navigation.navigate('SideMenu', {})}>
+            <View style={styles.container}>
+            <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Drop', {})}>
                 <ImageBackground
                 source={require('../assets/icons/Homepage.png')}
                 style={styles.backgroundImage}
                 />
+            </TouchableWithoutFeedback>
           </View>
         )
     }
