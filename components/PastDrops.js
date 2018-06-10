@@ -9,13 +9,11 @@ import {
     Image
 } from 'react-native'
 import { white, purple, gray, green, blue } from '../utils/colors'
-import Header from './Header'
-import { connect } from 'react-redux'
 
-class Landing extends Component {
+export default class PastDrops extends Component {
     render() {
         return (
-            <View>
+            <View style={styles.container}>
             </View>
         )
     }
@@ -28,11 +26,3 @@ const styles = StyleSheet.create({
         backgroundColor: white
     },
 })
-
-function mapStateToProps(state, { navigation }) {
-    return {
-        navigation
-    }
-}
-
-export default connect(mapStateToProps)(Landing)
