@@ -1,8 +1,8 @@
 import React from 'react'
-import { 
-  StyleSheet, 
-  Text, 
-  View 
+import {
+  StyleSheet,
+  Text,
+  View
 } from 'react-native'
 import {
   Provider
@@ -19,15 +19,6 @@ import Landing from './components/Landing'
 import { green } from './utils/colors'
 
 const MainNavigator = createStackNavigator({
-  Home: {
-    screen: Login,
-    navigationOptions: {
-      headerTintColor: green,
-      headerStyle: {
-        backgroundColor: green
-      }
-    }
-  },
   Landing: {
     screen: Landing,
     navigationOptions: {
@@ -40,17 +31,36 @@ const MainNavigator = createStackNavigator({
 })
 
 export default class App extends React.Component {
-  componentDidMount(){
-    // Do anything we need here
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedIn: false,
+      store: createStore(reducer)
+    };
+  }
+  triggerLogin() {
+    this.setState({
+      loggedIn: true
+    });
   }
   render() {
+    if (this.state.loggedIn) {
+      return (
+        <Provider store={this.state.store}>
+          <View style={[{ flex: 1 }]}>
+            <MainNavigator />
+          </View>
+        </Provider>
+      )
+    }
+
     return (
-      <Provider store={createStore(reducer)}>
+      <Provider store={this.state.store}>
         <View style={[{ flex: 1 }]}>
-          <MainNavigator />
+          <Login login={this.triggerLogin.bind(this)}/>
         </View>
       </Provider>
-    );
+    )
   }
 }
 

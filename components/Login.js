@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { 
-    View, 
-    TouchableOpacity, 
-    Text, Platform, 
-    StyleSheet, 
-    TextInput, 
+import {
+    View,
+    TouchableOpacity,
+    Text, Platform,
+    StyleSheet,
+    TextInput,
     Alert,
     Image
  } from 'react-native'
@@ -62,10 +62,7 @@ class Login extends Component {
             login(
                 { username, password }
             )
-            .then(() => this.props.navigation.navigate(
-                'Landing',
-                {state: ''}
-            ))
+            .then(() => this.props.login())
         }
     }
     render() {
@@ -152,8 +149,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Avenir'
     },
     textInput: {
-        height: 40, 
-        borderBottomColor: white, 
+        height: 40,
+        borderBottomColor: white,
         borderBottomWidth: 1,
         fontFamily: 'Avenir'
     },
