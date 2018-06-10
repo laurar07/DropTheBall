@@ -1,4 +1,4 @@
-const api = "https://droptheball.herokuapp.com/"
+const api = "https://droptheball.herokuapp.com"
 
 // Generate a unique token for storing your bookshelf data on the backend server.
 /*let token = localStorage.token

@@ -62,6 +62,10 @@ class Login extends Component {
             login(
                 { username, password }
             )
+            .then(() => this.props.navigation.navigate(
+                'Landing',
+                {state: ''}
+            ))
         }
     }
     render() {
@@ -158,7 +162,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     initialSpace: {
-        height: 120
+        height: 50
     },
     space: {
         height: 20
@@ -223,6 +227,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state, { navigation }) {
     return {
+        navigation
     }
 }
 

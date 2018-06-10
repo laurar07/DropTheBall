@@ -15,11 +15,28 @@ import {
   createStackNavigator
 } from 'react-navigation';
 import Login from './components/Login'
+import Landing from './components/Landing'
+import { green } from './utils/colors'
 
 const MainNavigator = createStackNavigator({
   Home: {
     screen: Login,
-  }
+    navigationOptions: {
+      headerTintColor: green,
+      headerStyle: {
+        backgroundColor: green
+      }
+    }
+  },
+  Landing: {
+    screen: Landing,
+    navigationOptions: {
+      headerTintColor: green,
+      headerStyle: {
+        backgroundColor: green
+      }
+    }
+  },
 })
 
 export default class App extends React.Component {
@@ -29,8 +46,8 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStore(reducer)}>
-        <View style={styles.container}>
-          <Login />
+        <View style={[{ flex: 1 }]}>
+          <MainNavigator />
         </View>
       </Provider>
     );
