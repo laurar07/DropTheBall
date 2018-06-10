@@ -11,6 +11,16 @@ import {
   createStore
 } from 'redux'
 import reducer from './reducers'
+import {
+  createStackNavigator
+} from 'react-navigation';
+import Login from './components/Login'
+
+const MainNavigator = createStackNavigator({
+  Home: {
+    screen: Login,
+  }
+})
 
 export default class App extends React.Component {
   componentDidMount(){
@@ -20,9 +30,7 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducer)}>
         <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
-          <Text>Changes you make will automatically reload.</Text>
-          <Text>Shake your phone to open the developer menu.</Text>
+          <Login />
         </View>
       </Provider>
     );
