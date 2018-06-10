@@ -60,9 +60,6 @@ class SideMenu extends Component {
           </View>
 
         </ScrollView>
-        <View style={styles.footerContainer}>
-          <Text>This is my fixed footer</Text>
-        </View>
       </View>
     );
   }

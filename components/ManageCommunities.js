@@ -6,15 +6,19 @@ import {
     StyleSheet,
     TextInput,
     Alert,
-    Image
+    ImageBackground
 } from 'react-native'
 import { white, purple, gray, green, blue } from '../utils/colors'
 
 export default class ManageCommunities extends Component {
     render() {
         return (
-            <View style={styles.container}>
-            </View>
+          <View style={styles.container}>
+            <ImageBackground
+              source={require('../assets/icons/manage_communities.png')}
+              style={styles.backgroundImage}
+            />
+          </View>
         )
     }
 }
@@ -22,7 +26,8 @@ export default class ManageCommunities extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 40,
-        backgroundColor: gray
     },
+    backgroundImage: {
+      flex: 1,
+    }
 })
