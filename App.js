@@ -59,6 +59,7 @@ const MainNavigator = createStackNavigator({
     screen: CustomDrawerNavigator,
     navigationOptions: {
       headerTintColor: green,
+      headerTitle: Header,
       headerStyle: {
         backgroundColor: green
       }
