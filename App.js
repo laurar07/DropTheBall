@@ -24,7 +24,8 @@ const navOptions = {
   headerTitle: Header,
   headerLeft: null,
   headerStyle: {
-    backgroundColor: green
+    backgroundColor: green,
+    height: 60
   }
 };
 const CustomDrawerNavigator = createDrawerNavigator({

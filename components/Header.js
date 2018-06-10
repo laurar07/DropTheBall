@@ -16,10 +16,8 @@ export default class Header extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity style={styles.left} onPress={this.toHome}>
-                    {Platform.OS === 'ios'
-                        ? <Ionicons name='ios-menu' size={50} color={black} />
-                        : <MaterialIcons name='menu' size={50} color={black} />}
+                <TouchableOpacity onPress={this.toHome}>
+                    <Image source={require('assets/icons/Nav.png')} />
                 </TouchableOpacity>
             </View>
         )
@@ -29,13 +27,20 @@ export default class Header extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: green
+        backgroundColor: green,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     left: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
         backgroundColor: green,
-        paddingLeft: 20
+        paddingLeft: 20,
+        paddingTop: 10,
+        paddingBotton: 10
+    },
+    right: {
+        backgroundColor: green,
+        paddingRight: 20,
+        paddingTop: 10,
+        paddingBotton: 10
     },
 })
