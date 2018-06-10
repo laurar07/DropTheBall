@@ -19,19 +19,34 @@ import ManageCommunities from './components/ManageCommunities';
 import PastDrops from './components/PastDrops';
 import SideMenu from './components/SideMenu';
 import Landing from './components/Landing'
-
+const navOptions = {
+  headerTintColor: green,
+  headerTitle: Header,
+  headerLeft: null,
+  headerStyle: {
+    backgroundColor: green
+  }
+};
 const CustomDrawerNavigator = createDrawerNavigator({
+  Landing: {
+    screen: Landing,
+    navigationOptions: navOptions,
+  },
   CalendarView: {
-    screen: CalendarView
+    screen: CalendarView,
+    navigationOptions: navOptions,
   },
   CreateCommunity: {
-    screen: CreateCommunity
+    screen: CreateCommunity,
+    navigationOptions: navOptions,
   },
   ManageCommunities: {
-    screen: ManageCommunities
+    screen: ManageCommunities,
+    navigationOptions: navOptions,
   },
   PastDrops: {
-    screen: PastDrops
+    screen: PastDrops,
+    navigationOptions: navOptions,
   }
 }, {
     contentComponent: SideMenu,
@@ -39,17 +54,6 @@ const CustomDrawerNavigator = createDrawerNavigator({
   });
 
 const MainNavigator = createStackNavigator({
-  Landing: {
-    screen: Landing,
-    navigationOptions: {
-      headerTintColor: green,
-      headerTitle: Header,
-      headerLeft: null,
-      headerStyle: {
-        backgroundColor: green
-      }
-    }
-  },
   CustomDrawerNavigator: {
     screen: CustomDrawerNavigator,
     navigationOptions: {
