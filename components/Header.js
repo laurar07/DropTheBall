@@ -18,8 +18,19 @@ export default class Header extends Component {
             <View style={styles.container}>
                 <TouchableOpacity style={styles.left} onPress={this.toHome}>
                     {Platform.OS === 'ios'
-                        ? <Ionicons name='ios-menu' size={50} color={black} />
-                        : <MaterialIcons name='menu' size={50} color={black} />}
+                        ? <Ionicons name='ios-menu' size={40} color={white} />
+                        : <MaterialIcons name='menu' size={40} color={white} />}
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.center} onPress={this.toHome}>
+                    <Image
+                        style={{ width: 40, height: 40, resizeMode: 'contain'}}
+                        source={require('../assets/icons/logo_small.png')}
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.right} onPress={this.toHome}>
+                    {Platform.OS === 'ios'
+                        ? <Ionicons name='ios-person' size={40} color={white} />
+                        : <MaterialIcons name='person' size={40} color={white} />}
                 </TouchableOpacity>
             </View>
         )
@@ -29,13 +40,26 @@ export default class Header extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: green
+        backgroundColor: green,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     left: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
         backgroundColor: green,
-        paddingLeft: 20
+        paddingLeft: 20,
+        paddingTop: 10,
+        paddingBottom: 10
     },
+    right: {
+        backgroundColor: green,
+        paddingRight: 20,
+        paddingTop: 10,
+        paddingBottom: 10
+    },
+    center: {
+        alignItems: 'flex-end',
+        backgroundColor: green,
+        paddingTop: 10,
+        paddingBottom: 0
+    }
 })
