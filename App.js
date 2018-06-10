@@ -1,7 +1,5 @@
 import React from 'react'
 import {
-  StyleSheet,
-  Text,
   View
 } from 'react-native'
 import {
@@ -11,16 +9,49 @@ import {
   createStore
 } from 'redux'
 import reducer from './reducers'
-import {
-  createStackNavigator
-} from 'react-navigation';
 import Login from './components/Login'
+import Header from './components/Header'
+import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
+import { white, purple, gray, green, blue } from './utils/colors'
+import CalendarView from './components/CalendarView';
+import CreateCommunity from './components/CreateCommunity';
+import ManageCommunities from './components/ManageCommunities';
+import PastDrops from './components/PastDrops';
+import SideMenu from './components/SideMenu';
 import Landing from './components/Landing'
-import { green } from './utils/colors'
+
+const CustomDrawerNavigator = createDrawerNavigator({
+  CalendarView: {
+    screen: CalendarView
+  },
+  CreateCommunity: {
+    screen: CreateCommunity
+  },
+  ManageCommunities: {
+    screen: ManageCommunities
+  },
+  PastDrops: {
+    screen: PastDrops
+  }
+}, {
+    contentComponent: SideMenu,
+    drawerWidth: 300
+  });
 
 const MainNavigator = createStackNavigator({
   Landing: {
     screen: Landing,
+    navigationOptions: {
+      headerTintColor: green,
+      headerTitle: Header,
+      headerLeft: null,
+      headerStyle: {
+        backgroundColor: green
+      }
+    }
+  },
+  CustomDrawerNavigator: {
+    screen: CustomDrawerNavigator,
     navigationOptions: {
       headerTintColor: green,
       headerStyle: {
@@ -63,12 +94,3 @@ export default class App extends React.Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

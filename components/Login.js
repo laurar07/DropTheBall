@@ -13,6 +13,10 @@ import { connect } from 'react-redux'
 import { addCard } from '../actions'
 import { white, purple, gray, green, blue } from '../utils/colors'
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons'
+import DrawerNavigator from './CustomDrawerNavigator'
+import SideMenu from './SideMenu'
+import CalendarView from './CalendarView'
+import Landing from './Landing'
 
 function SignInBtn({ onPress }) {
     return (
@@ -37,7 +41,8 @@ function ConnectWithFacebookBtn({ onPress }) {
 class Login extends Component {
     state = {
         username: '',
-        password: ''
+        password: '',
+        isLoggedIn: false
     }
     submit = () => {
         const {
@@ -68,62 +73,62 @@ class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View>
-                    <View style={styles.initialSpace} />
-                    <View style={styles.dropImage}>
-                        <Image
-                            source={require('../assets/icons/logo_large.png')}
+                    <View>
+                        <View style={styles.initialSpace} />
+                        <View style={styles.dropImage}>
+                            <Image
+                                source={require('../assets/icons/logo_large.png')}
+                            />
+                        </View>
+                        <View style={styles.space}>
+                        </View>
+                        <Text style={styles.titleText}>
+                            Drop the Ball
+                        </Text>
+                        <View style={styles.space}>
+                        </View>
+                        <TextInput
+                            style={styles.textInput}
+                            onChangeText = {
+                                (text) => this.setState({
+                                    username: text
+                                })
+                            }
+                            value={this.state.username}
+                            placeholder="Email"
+                            placeholderTextColor="white"
                         />
+                        <View style={styles.space}>
+                        </View>
+                        <TextInput
+                            style={styles.textInput}
+                            onChangeText = {
+                                (text) => this.setState({
+                                    password: text
+                                })
+                            }
+                            value={this.state.password}
+                            placeholder="Password"
+                            placeholderTextColor="white"
+                            secureTextEntry={true}
+                        />
+                        <View style={styles.space}>
+                        </View>
+                        <Text style={styles.regularText}>
+                            Forgot password?
+                        </Text>
                     </View>
-                    <View style={styles.space}>
+                    <View style={styles.buttonSpace}>
                     </View>
-                    <Text style={styles.titleText}>
-                        Drop the Ball
-                    </Text>
-                    <View style={styles.space}>
-                    </View>
-                    <TextInput
-                        style={styles.textInput}
-                        onChangeText = {
-                            (text) => this.setState({
-                                username: text
-                            })
-                        }
-                        value={this.state.username}
-                        placeholder="Email"
-                        placeholderTextColor="white"
-                    />
-                    <View style={styles.space}>
-                    </View>
-                    <TextInput
-                        style={styles.textInput}
-                        onChangeText = {
-                            (text) => this.setState({
-                                password: text
-                            })
-                        }
-                        value={this.state.password}
-                        placeholder="Password"
-                        placeholderTextColor="white"
-                        secureTextEntry={true}
-                    />
+                    <SignInBtn onPress={this.submit} />
+                    <View style={styles.space} />
+                    <ConnectWithFacebookBtn onPress={this.submit} />
                     <View style={styles.space}>
                     </View>
                     <Text style={styles.regularText}>
-                        Forgot password?
+                        <Text>Don't have an account?</Text>
+                        <Text style={{ fontWeight: "bold" }}> Sign up</Text>
                     </Text>
-                </View>
-                <View style={[{ flex: 1 }]}>
-                </View>
-                <SignInBtn onPress={this.submit} />
-                <View style={styles.space} />
-                <ConnectWithFacebookBtn onPress={this.submit} />
-                <View style={styles.space}>
-                </View>
-                <Text style={styles.regularText}>
-                    <Text>Don't have an account?</Text>
-                    <Text style={{ fontWeight: "bold" }}> Sign up</Text>
-                </Text>
             </View>
         )
     }
@@ -163,6 +168,9 @@ const styles = StyleSheet.create({
     },
     space: {
         height: 20
+    },
+    buttonSpace: {
+        height: 60
     },
     signInBtn: {
         backgroundColor: white,
