@@ -6,20 +6,23 @@ import {
     StyleSheet,
     TextInput,
     Alert,
-    ImageBackground
+    ImageBackground,
+    Image
 } from 'react-native'
 import { white, purple, gray, green, blue } from '../utils/colors'
 import Header from './Header'
 import { connect } from 'react-redux'
+import Drawer from 'react-native-drawer'
+import SideMenu from './SideMenu'
 
 class Landing extends Component {
     render() {
         return (
-          <View style={styles.container}>
-            <ImageBackground
-              source={require('../assets/icons/Homepage.png')}
-              style={styles.backgroundImage}
-            />
+            <View style={styles.container} onPress={() => this.props.navigation.navigate('SideMenu', {})}>
+                <ImageBackground
+                source={require('../assets/icons/Homepage.png')}
+                style={styles.backgroundImage}
+                />
           </View>
         )
     }
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     backgroundImage: {
-      flex: 1,
+        flex: 1
     }
 })
 
