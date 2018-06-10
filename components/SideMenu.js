@@ -13,6 +13,7 @@ import {
 import React, {Component} from 'react';
 import {NavigationActions} from 'react-navigation';
 import { white, purple, gray, green, blue } from '../utils/colors'
+import { Notifications, Permissions, Calendar } from 'expo'
 
 class SideMenu extends Component {
   navigateToScreen = (route) => () => {
@@ -20,6 +21,16 @@ class SideMenu extends Component {
       routeName: route
     });
     this.props.navigation.dispatch(navigateAction);
+  }
+
+  getCalendarAsync = () => {
+  Permissions.askAsync(Permissions.CALENDAR).then((status) => {
+  if (status === 'granted') {
+    this.navigateToScreen('CalendarView');
+  } else {
+    throw new Error('Calendar permission not granted');
+  }
+  })
   }
 
   render () {
@@ -43,7 +54,14 @@ class SideMenu extends Component {
               </Text>
             </View>
             <View style={styles.navItemContainer}>
-              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('CalendarView')}>
+              <Text style={styles.navItemStyle} onPress={() => {
+                Permissions.askAsync(Permissions.CALENDAR).then((status) => {
+                  const navigateAction = NavigationActions.navigate({
+                    routeName: 'CalendarView'
+                  });
+                  this.props.navigation.dispatch(navigateAction);
+                })
+              }}>
                 My calendar
               </Text>
             </View>
