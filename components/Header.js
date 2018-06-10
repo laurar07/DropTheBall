@@ -17,7 +17,7 @@ export default class Header extends Component {
         return (
             <View style={styles.container}>
                 <TouchableOpacity onPress={this.toHome}>
-                    <Image source={require('assets/icons/Nav.png')} />
+                    <Image source={require('../assets/icons/Nav.png')} />
                 </TouchableOpacity>
             </View>
         )
