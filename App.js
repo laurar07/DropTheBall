@@ -32,7 +32,9 @@ const navOptions = {
 const CustomDrawerNavigator = createDrawerNavigator({
   Landing: {
     screen: Landing,
-    navigationOptions: navOptions,
+    navigationOptions: ({ navigation }) => ({
+      headerLeft: <Header navigate={navigation.navigate} />,
+    }),
   },
   CalendarView: {
     screen: CalendarView,

@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import {
     View,
-    TouchableOpacity,
-    Text, Platform,
     StyleSheet,
-    TextInput,
-    Alert,
-    Image
+    ImageBackground
 } from 'react-native'
 import { white, purple, gray, green, blue } from '../utils/colors'
 
@@ -14,6 +10,10 @@ export default class PastDrops extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <ImageBackground
+                    source={require('../assets/icons/Past_Drops.png')}
+                    style={styles.backgroundImage}
+                />
             </View>
         )
     }
@@ -22,7 +22,8 @@ export default class PastDrops extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 40,
-        backgroundColor: white
     },
+    backgroundImage: {
+        flex: 1
+    }
 })
